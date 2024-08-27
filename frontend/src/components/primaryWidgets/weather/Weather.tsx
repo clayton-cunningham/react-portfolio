@@ -13,13 +13,18 @@ import { WeatherReportStructure, getIcon } from "./helpers";
  */
 export const Weather = () => {
 
-    const locations = ["TOP/31,80/forecast"];
+    const locations = ["39.7456,-97.0892", "38.9064,-77.0359"];
     const [weatherReport, setWeatherReport] = useState<WeatherReportStructure[]>([]);
 
 
     const findWeather = () => {
-        axios.get("https://api.weather.gov/gridpoints/TOP/31,80/forecast")
-            .then(res => {
+        const rand = Math.floor(Math.random() * 2);
+        axios.get("https://api.weather.gov/points/" + locations[rand])
+            .then(res1 => {
+                console.log(res1);
+                // axios.get("https://api.weather.gov/gridpoints/TOP/31,80/forecast")
+                axios.get(res1.data.properties.forecast)
+                    .then(res => {
                 if (res.status != 200) {
                     console.log("Error getting weather....");
                     return;
@@ -28,6 +33,7 @@ export const Weather = () => {
                 console.log(res);
                 setWeatherReport(res.data.properties.periods.filter((p:{name:string}) => !p.name.includes("Night")));
             })
+        })
     }
 
     // TODO: at the end, make the alt text relevant to the results
