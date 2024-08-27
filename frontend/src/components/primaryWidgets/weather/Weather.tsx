@@ -18,12 +18,18 @@ export const Weather = () => {
 
 
     const findWeather = () => {
+        // Choose a random location
+        // TODO: add more options / geolocation randomness
         const rand = Math.floor(Math.random() * 2);
+
+        // First get the lat/lon coordinates, then the weather
         axios.get("https://api.weather.gov/points/" + locations[rand])
-            .then(res1 => {
-                console.log(res1);
-                // axios.get("https://api.weather.gov/gridpoints/TOP/31,80/forecast")
-                axios.get(res1.data.properties.forecast)
+            .then(res_LatLon => {
+                if (res_LatLon.status != 200) {
+                    console.log("Error getting weather....");
+                    return;
+                }
+                axios.get(res_LatLon.data.properties.forecast)
                     .then(res => {
                 if (res.status != 200) {
                     console.log("Error getting weather....");
@@ -31,7 +37,9 @@ export const Weather = () => {
                 }
 
                 console.log(res);
-                setWeatherReport(res.data.properties.periods.filter((p:{name:string}) => !p.name.includes("Night")));
+                // Only retrieve reports starting on each morning
+                // TODO: maybe add aggregation across the day?
+                setWeatherReport(res.data.properties.periods.filter((p:{startTime:string}) => p.startTime.split("T")[1].split("-")[0] == "06:00:00"));
             })
         })
     }
