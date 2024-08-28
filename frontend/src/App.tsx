@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Column>
-          <p>Test</p>
-          <p>Test</p>
+          <p>Clayton Cunningham</p>
+          <p>Software Developer</p>
           <Row>
             <p>Test</p>
             <p>Test</p>
