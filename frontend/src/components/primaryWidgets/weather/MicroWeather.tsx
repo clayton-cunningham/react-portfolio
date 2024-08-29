@@ -17,7 +17,7 @@ export const WeatherList = (props: {weatherReport: WeatherReportStructure[]}) =>
                     return (
                         <Column key={element.name}>
                             <p>{element.name}</p>
-                            <img alt={`${element.name} image or data not available`} src={getIcon(element.shortForecast)} />
+                            <img className="iconImg" alt={`${element.name} image or data not available`} src={getIcon(element.shortForecast)} />
                             <p>{element.temperature}&deg;</p>
                             <p>{getDescription(element.shortForecast)}</p>
                         </Column>

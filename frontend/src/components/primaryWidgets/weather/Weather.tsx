@@ -21,11 +21,15 @@ export const Weather = () => {
 
     const handleError = () => {
         console.log("Error getting weather....");
-        setDisableButton(false);
+        requestComplete();
         // TODO: add something that happens just in case...
     }
 
-    const findWeather = () => {
+    const requestComplete = () => {
+        setDisableButton(false);
+    }
+
+    const findWeather = async () => {
         setDisableButton(true);
 
         try {
@@ -47,18 +51,20 @@ export const Weather = () => {
     
                     // Retrieve the weather info
                     axios.get(latLoProp.forecast)
-                        .then(res => {
+                        .then(async res => {
                             if (res.status != 200) {
                                 handleError();
                                 return;
                             }
     
+                            
                             // console.log(res);
                             setLocation(latLoProp.relativeLocation.properties.city + ", " + latLoProp.relativeLocation.properties.state);
                             // Only retrieve reports starting on each morning
                             // TODO: maybe add aggregation across the day?
                             setWeatherReport(res.data.properties.periods.filter((p:{startTime:string}) => p.startTime.split("T")[1].split("-")[0] == "06:00:00"));
-                            setDisableButton(false);
+                            await new Promise(f => setTimeout(f, 1000));
+                            requestComplete();
                         })
                         .catch(e => {
                             handleError();
@@ -80,16 +86,25 @@ export const Weather = () => {
                     <h3>Find some weather in one of the areas where I want to work!</h3>
                     <button onClick={() => findWeather()} disabled={disableButton}>Find some weather!</button>
                     {weatherReport.length > 0 && (
-                        <div className="dynamicRow">
-                            <Column className="mainIcon">
-                                <h2>{location}</h2>
-                                <img alt="Image not available" src={getIcon(weatherReport[0]?.shortForecast)} />
-                                <h3>{weatherReport[0]?.temperature}&deg;</h3>
-                                <h3>{getDescription(weatherReport[0]?.shortForecast)}</h3>
-                            </Column>
-                            <WeatherList 
-                                weatherReport={weatherReport}
-                            />
+                        <div>
+                            <div className="dynamicRow">
+                                <Column className="mainIcon">
+                                    <h2>{location}</h2>
+                                    <img className="iconImg" alt="Image not available" src={getIcon(weatherReport[0]?.shortForecast)} />
+                                    <h3>{weatherReport[0]?.temperature}&deg;</h3>
+                                    <h3>{getDescription(weatherReport[0]?.shortForecast)}</h3>
+                                </Column>
+                                <WeatherList 
+                                    weatherReport={weatherReport}
+                                />
+                            </div>
+                            <img className="backgroundImage" src="thunderBg.png" />
+                        </div>
+                    )}
+                    {disableButton && (
+                        <div>
+                            <div className="slide" id="slideRight" />
+                            <div className="slide" id="slideUp" />
                         </div>
                     )}
                 </Column>

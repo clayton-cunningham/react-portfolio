@@ -5,7 +5,7 @@ export const Column = (props: any) => {
     const {children} = props;
 
     return (
-        <div className={"column " + props.className}>
+        <div className={"column " + (props.className ?? "")}>
             {children}
         </div>
     )
