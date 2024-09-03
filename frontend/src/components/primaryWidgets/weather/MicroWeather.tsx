@@ -12,15 +12,18 @@ export const WeatherList = (props: {weatherReport: WeatherReportStructure[]}) =>
 
     return (
             <Row>
-            <div className="microWeather">
+            <div className="micro-weather">
                 {props.weatherReport.map(element => {
+                    
                     return (
-                        <Column key={element.name}>
-                            <p>{element.name}</p>
-                            <img className="iconImg" alt={`${element.name} image or data not available`} src={getIcon(element.shortForecast)} />
-                            <p>{element.temperature}&deg;</p>
-                            <p>{getDescription(element.shortForecast)}</p>
-                        </Column>
+                        <div style={{ height: "200px"}}>
+                            <Column key={element.name} className={`fade-up delay-${Math.floor(element.number / 2)}`}>
+                                <p>{element.name}</p>
+                                <img className="icon-img" alt={`${element.name} image or data not available`} src={getIcon(element.shortForecast)} />
+                                <p>{element.temperature}&deg;</p>
+                                <p>{getDescription(element.shortForecast)}</p>
+                            </Column>
+                        </div>
                     );
                 })}
                 </div>
