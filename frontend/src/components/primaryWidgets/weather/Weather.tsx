@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { WeatherReportStructure, getDescription, getIcon, weatherLocationSamples } from "./helpers";
 // @ts-ignore
 import randomLocation from "random-location";
+import { TriangleSlide, TriangleSlideDirection } from "../../generic/TriangleSlide";
 
 /**
  * Primary weather widget
@@ -140,13 +141,13 @@ export const Weather = () => {
                     {disable && (
                         <div>
                             <div className="slide" id="slide-right" />
-                            <div className="slide" id="slide-up-left" />
+                            <TriangleSlide direction={TriangleSlideDirection.InUpLeft} />
                             <div className="slide" id="slide-up" />
                         </div>
                     )}
                     {reveal && (
                         <div>
-                            <div className="slide" id="slide-out-down-left" />
+                            <TriangleSlide direction={TriangleSlideDirection.OutDownLeft} />
                         </div>
                     )}
                 </Column>
