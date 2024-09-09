@@ -2,12 +2,15 @@ import { Column } from "../../generic/Column";
 import { PageSection } from "../../generic/PageSection";
 import { WeatherList } from "./MicroWeather";
 import axios from "axios";
+import axiosRetry from 'axios-retry';
 import "./Weather.less";
 import { useEffect, useState } from "react";
 import { WeatherReportStructure, getDescription, getIcon, weatherLocationSamples } from "./helpers";
 // @ts-ignore
 import randomLocation from "random-location";
 import { TriangleSlide, TriangleSlideDirection } from "../../generic/TriangleSlide";
+
+axiosRetry(axios, { retries: 3 });
 
 /**
  * Primary weather widget
@@ -22,17 +25,23 @@ export const Weather = () => {
     const [location, setLocation] = useState<string>("");
 
     // Flags to control animation / disabling
-    const [disable, setDisabled] = useState(false);
-    const [reveal, setReveal] = useState(false);
-    const [retrievingFlag, setRetrievingFlag] = useState(false);
-    const [animationPlaying, setAnimationPlaying] = useState(true);
-    const [reset, setReset] = useState(false);
+    const [disable,         setDisabled         ] = useState(false);    // Tells widget to be disabled (cover the screen, disable the button)
+    const [retrievingFlag,  setRetrievingFlag   ] = useState(false);    // Flags when the API is retrieving - to know when we can reveal the results
+    const [coverAnimation,  setCoverAnimation   ] = useState(true);     // Flags when the cover animation is playing - to know when we can transition to the next animation (distinct from "disable")
+    const [revealAnimation, setRevealAnimation  ] = useState(false);    // Controls when the reveal animation should exist
+    const [resetUIData,     setResetUIData      ] = useState(false);    // Destroys and re-initializes the weather UI data, so its animation can play
+    const [showError,       setShowError        ] = useState(false);    // Show an error message
 
     const handleError = (e:any) => {
         console.log("Error getting weather....");
         console.log(e);
         setRetrievingFlag(false);
-        setDisabled(false);
+        setWData(null);
+        setLLData(null);
+        setWeatherReport([]);
+        setLocation("");
+        setShowError(true);
+        // setDisabled(false);
         // TODO: add something that happens just in case...
         // TODO: handle animation in case of error
     }
@@ -51,25 +60,26 @@ export const Weather = () => {
 
     useEffect(() => {
         // Sync together animation and API retrieval
-        if (animationPlaying || retrievingFlag) return;
-        if (weatherData == null || latLongData == null) return;
-        setReset(true);
-        setReveal(true);
-        new Promise(() => setTimeout(() => {setReveal(false);}, 2000));
+        if (coverAnimation || retrievingFlag) return;
+        // if (weatherData == null || latLongData == null) return;
+        setResetUIData(true);
+        setRevealAnimation(true);
+        new Promise(() => setTimeout(() => {setRevealAnimation(false);}, 2000));
 
         // Only retrieve reports starting on each mornings
         // TODO: maybe add aggregation across the day?
-        setWeatherReport(weatherData.periods.filter((p:{startTime:string}) => p.startTime.split("T")[1].split("-")[0] == "06:00:00"));
-        setLocation(latLongData.relativeLocation.properties.city + ", " + latLongData.relativeLocation.properties.state);
+        setWeatherReport(weatherData?.periods.filter((p:{startTime:string}) => p.startTime.split("T")[1].split("-")[0] == "06:00:00").slice(0,6));
+        setLocation(latLongData?.relativeLocation.properties.city + ", " + latLongData?.relativeLocation.properties.state);
         setDisabled(false);
-        new Promise(() => setTimeout(() => {setReset(false);}, 500));
-    }, [animationPlaying, weatherData, latLongData])
+        new Promise(() => setTimeout(() => {setResetUIData(false);}, 500));
+    }, [coverAnimation, weatherData, latLongData])
 
     const findWeather = async () => {
         setRetrievingFlag(true);
-        setAnimationPlaying(true);
+        setCoverAnimation(true);
         setDisabled(true);
-        new Promise(() => setTimeout(() => {setAnimationPlaying(false);}, 2000));
+        new Promise(() => setTimeout(() => {setCoverAnimation(false);}, 2000));
+        setShowError(false);
 
         try {
             const rand = Math.floor(Math.random() * weatherLocationSamples.length);
@@ -118,10 +128,10 @@ export const Weather = () => {
                     <h1 id="title">Weather</h1>
                     <h3>Find some weather in one of the areas where I want to work!</h3>
                     <button onClick={() => findWeather()} disabled={disable}>Find some weather!</button>
-                    {weatherReport.length > 0 && (
+                    {weatherReport?.length > 0 ? (
                         <div style={{ minHeight: "400px"}}>
                             {
-                                !reset && (
+                                !resetUIData && (
                                     <div className="dynamic-row">
                                         <Column className="fade-up">
                                             <h2>{location}</h2>
@@ -137,6 +147,8 @@ export const Weather = () => {
                                 )
                             }
                         </div>
+                    ) : (
+                        <img src="weatherBackground.jpg" />
                     )}
                     {disable && (
                         <div>
@@ -145,10 +157,13 @@ export const Weather = () => {
                             <div className="slide" id="slide-up" />
                         </div>
                     )}
-                    {reveal && (
+                    {revealAnimation && (
                         <div>
                             <TriangleSlide direction={TriangleSlideDirection.OutDownLeft} />
                         </div>
+                    )}
+                    {showError && (
+                        <p style={{"color":"red"}}>Error Occurred</p>
                     )}
                 </Column>
             </PageSection>
