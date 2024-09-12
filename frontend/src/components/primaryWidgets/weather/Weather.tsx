@@ -124,48 +124,46 @@ export const Weather = () => {
     return (
         <div className="weather-container">
             <PageSection>
-                <Column>
-                    <h1 id="title">Weather</h1>
-                    <h3>Find some weather in one of the areas where I want to work!</h3>
-                    <button onClick={() => findWeather()} disabled={disable}>Find some weather!</button>
-                    {weatherReport?.length > 0 ? (
-                        <div style={{ minHeight: "400px"}}>
-                            {
-                                !resetUIData && (
-                                    <div className="dynamic-row">
-                                        <Column className="fade-up">
-                                            <h2>{location}</h2>
-                                            <img className="icon-img" alt={"Image not available; " + weatherReport[0]?.shortForecast} src={getIcon(weatherReport[0]?.shortForecast)} />
-                                            <h3>{weatherReport[0]?.temperature}&deg;</h3>
-                                            <h3>{getDescription(weatherReport[0]?.shortForecast)}</h3>
-                                        </Column>
-                                        <WeatherList 
-                                            weatherReport={weatherReport}
-                                        />
-                                        {/* <img className="background-image" src="thunderBg.png" /> */}
-                                    </div>
-                                )
-                            }
-                        </div>
-                    ) : (
-                        <img src="weatherBackground.jpg" />
-                    )}
-                    {disable && (
-                        <div>
-                            <div className="slide" id="slide-right" />
-                            <TriangleSlide direction={TriangleSlideDirection.InUpLeft} />
-                            <div className="slide" id="slide-up" />
-                        </div>
-                    )}
-                    {revealAnimation && (
-                        <div>
-                            <TriangleSlide direction={TriangleSlideDirection.OutDownLeft} />
-                        </div>
-                    )}
-                    {showError && (
-                        <p style={{"color":"red"}}>Error Occurred</p>
-                    )}
-                </Column>
+                <h1 id="title">Weather</h1>
+                <h3>Find some weather in one of the areas where I want to work!</h3>
+                <button onClick={() => findWeather()} disabled={disable}>Find some weather!</button>
+                {weatherReport?.length > 0 ? (
+                    <div style={{ minHeight: "400px"}}>
+                        {
+                            !resetUIData && (
+                                <div className="dynamic-row">
+                                    <Column className="fade-up">
+                                        <h2>{location}</h2>
+                                        <img className="icon-img" alt={"Image not available; " + weatherReport[0]?.shortForecast} src={getIcon(weatherReport[0]?.shortForecast)} />
+                                        <h3>{weatherReport[0]?.temperature}&deg;</h3>
+                                        <h3>{getDescription(weatherReport[0]?.shortForecast)}</h3>
+                                    </Column>
+                                    <WeatherList 
+                                        weatherReport={weatherReport}
+                                    />
+                                    {/* <img className="background-image" src="thunderBg.png" /> */}
+                                </div>
+                            )
+                        }
+                    </div>
+                ) : (
+                    <img src="weatherBackground.jpg" />
+                )}
+                {disable && (
+                    <div>
+                        <div className="slide" id="slide-right" />
+                        <TriangleSlide direction={TriangleSlideDirection.InUpLeft} />
+                        <div className="slide" id="slide-up" />
+                    </div>
+                )}
+                {revealAnimation && (
+                    <div>
+                        <TriangleSlide direction={TriangleSlideDirection.OutDownLeft} />
+                    </div>
+                )}
+                {showError && (
+                    <p style={{"color":"red"}}>Error Occurred</p>
+                )}
             </PageSection>
         </div>
     )

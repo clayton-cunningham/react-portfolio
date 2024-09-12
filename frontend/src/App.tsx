@@ -1,6 +1,6 @@
 import './App.css'
 import { Column } from './components/generic/Column'
-import { Row } from './components/generic/Row'
+import { ResumeDetails } from './components/primaryWidgets/resume/ResumeDetails'
 import { Weather } from './components/primaryWidgets/weather/Weather'
 
 function App() {
@@ -8,12 +8,7 @@ function App() {
   return (
     <>
       <Column>
-          <p>Clayton Cunningham</p>
-          <p>Software Developer</p>
-          <Row>
-            <p>Test</p>
-            <p>Test</p>
-          </Row>
+        <ResumeDetails />
         <Weather />
       </Column>
     </>

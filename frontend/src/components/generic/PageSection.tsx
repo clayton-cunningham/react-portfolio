@@ -1,3 +1,4 @@
+import { Column } from "./Column";
 import "./generic.less";
 
 export const PageSection = (props: any) => {
@@ -6,7 +7,9 @@ export const PageSection = (props: any) => {
 
     return (
         <div className="section">
-            {children}
+            <Column>
+                {children}
+            </Column>
         </div>
     )
 }
