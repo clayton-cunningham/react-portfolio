@@ -1,6 +1,8 @@
+import { resumeCompanies } from "../../../assets/skillsLists.tsx";
+import { DynamicRow } from "../../generic/DynamicRow";
 import { PageSection } from "../../generic/PageSection"
 import "./ResumeDetails.less";
-import { SkillComponent } from "./SkillComponent";
+import { ResumeCompany } from "./ResumeCompany.tsx";
 
 export const ResumeDetails = () => {
 
@@ -13,14 +15,21 @@ export const ResumeDetails = () => {
                     <h2>Full Stack Developer</h2>
                 </PageSection>
             </div>
-            <div className="resumeSkills">
+            <div className="placeHolderName">
                 <PageSection>
                     <h3>Looking for a software developer position in New Jersey</h3>
                 </PageSection>
             </div>
-            <div>
-                <SkillComponent />
-            </div>
+            <DynamicRow
+                childrenList={resumeCompanies.map((c) => 
+                    {
+                        return {
+                            id: c.id,
+                            component: <ResumeCompany id={c.id} company={c} />
+                        }
+                    }
+                )}
+            />
         </div>
     )
 }
