@@ -1,4 +1,5 @@
 import { Company } from "../../../assets/skillsLists";
+import { Column } from "../../generic/Column";
 import "./ResumeDetails.less";
 
 export const ResumeCompany = (props: {id: string, company: Company}) => {
@@ -7,14 +8,15 @@ export const ResumeCompany = (props: {id: string, company: Company}) => {
 
     return (
         <>
-            <div key={id + "_resumeCompany"}>
+            <Column key={id + "_resumeCompany"} className="resume-company">
+                <img className="logo" src={company.logoSrc}/>
                 <h3>{company.title}</h3>
                 <p>{company.location}</p>
                 <p>{company.dates}</p>
                 {company.text.map((s: string) => {
                     return <p key={id + s.split(" ")[0]}>{s}</p>
                 })}
-            </div>
+            </Column>
         </>
     )
 }

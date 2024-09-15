@@ -5,6 +5,14 @@ export type Company = {
   location: string,
   dates: string,
   text: string[],
+  logoSrc: string,
+}
+
+const companyLogos = {
+  costar: "./companyLogos/costarLogo.png",
+  cognizant: "./companyLogos/cognizantLogo.png",
+  epic: "./companyLogos/epicLogo.png",
+  blackRocket: "./companyLogos/blackRocketLogo.png",
 }
 
 export const resumeCompanies = [
@@ -20,6 +28,7 @@ export const resumeCompanies = [
       "Maintained stable design monitoring with logging and auditing software",
       "Supported 95% automated coverage with E2E, unit tests, and load testing",
     ],
+    logoSrc: companyLogos.costar,
   },
   {
     id: "2",
@@ -31,6 +40,7 @@ export const resumeCompanies = [
       "Built api server configurations for information retrieval",
       "Designed responsive front-end interfaces utilizing information requested from server",
     ],
+    logoSrc: companyLogos.cognizant,
   },
   {
     id: "3",
@@ -43,6 +53,7 @@ export const resumeCompanies = [
       "Worked with team to automate populating messages with relevant information",
       "Improved time management and communication skills during Covid-19 quarantine ",
     ],
+    logoSrc: companyLogos.epic,
   },
   {
     id: "4",
@@ -55,5 +66,34 @@ export const resumeCompanies = [
       "Assisted implementation of a series of websites using JavaScript, HTML and CSS",
       "Identified errors in and instructed proper execution of Python, Lua, and Scratch",
     ],
+    logoSrc: companyLogos.blackRocket,
   },
 ];
+
+export const languages = [
+  "Java",
+  "C#",
+  "Javascript",
+  "TypeScript",
+  "React.js",
+  "Node.js",
+  "HTML",
+  "YAML",
+  "CSS",
+]
+
+export const software = [
+  "Git",
+  "AWS Lambda",
+  "AWS Cloudwatch",
+  "AWS IAM",
+  "Kubernetes",
+  "Docker",
+  "Kafka",
+  "Eclipse",
+  "Visual Studio",
+  "Datadog",
+  "Snowflake",
+  "Cypress",
+  "K6",
+]

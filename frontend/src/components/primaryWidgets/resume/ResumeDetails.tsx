@@ -1,8 +1,10 @@
-import { resumeCompanies } from "../../../assets/skillsLists.tsx";
+import { languages, resumeCompanies, software } from "../../../assets/skillsLists.tsx";
 import { DynamicRow } from "../../generic/DynamicRow";
 import { PageSection } from "../../generic/PageSection"
 import "./ResumeDetails.less";
 import { ResumeCompany } from "./ResumeCompany.tsx";
+import { Column } from "../../generic/Column.tsx";
+import { Grid } from "../../generic/Grid.tsx";
 
 export const ResumeDetails = () => {
 
@@ -30,6 +32,30 @@ export const ResumeDetails = () => {
                     }
                 )}
             />
+            <Column>
+                <Grid
+                    cells={[
+                        <h4>Langages:</h4>,
+                        <DynamicRow
+                            childrenList={languages.map(l => {
+                                    return {
+                                        id: l,
+                                        component: <p>{l}</p>,
+                                    }
+                                })}
+                        />,
+                        <h4>Software:</h4>,
+                        <DynamicRow
+                            childrenList={software.map(s => {
+                                    return {
+                                        id: s,
+                                        component: <p>{s}</p>,
+                                    }
+                                })}
+                        />,
+                    ]}
+                />
+            </Column>
         </div>
     )
 }
