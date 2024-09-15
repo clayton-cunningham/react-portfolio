@@ -11,13 +11,13 @@ export const ResumeDetails = () => {
 
     return (
         <div className="resume">
-            <div className="resumeHeader">
+            <div className="resume-header">
                 <PageSection>
                     <h1>Clayton Cunningham</h1>
                     <h2>Full Stack Developer</h2>
                 </PageSection>
             </div>
-            <div className="placeHolderName">
+            <div>
                 <PageSection>
                     <h3>Looking for a software developer position in New Jersey</h3>
                 </PageSection>

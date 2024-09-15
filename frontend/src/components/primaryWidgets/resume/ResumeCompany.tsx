@@ -8,7 +8,7 @@ export const ResumeCompany = (props: {id: string, company: Company}) => {
 
     return (
         <>
-            <Column key={id + "_resumeCompany"} className="resume-company">
+            <Column key={id + "_resume-company"} className="resume-company">
                 <img className="logo" src={company.logoSrc}/>
                 <h3>{company.title}</h3>
                 <p>{company.location}</p>

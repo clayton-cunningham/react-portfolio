@@ -7,10 +7,10 @@ export const DynamicRow = (props: any) => {
     const classNameSuffix = props.className ? " " + props.className : "";
 
     return (
-        <div className={"dynamicRow" + classNameSuffix}>
+        <div className={"dynamic-row" + classNameSuffix}>
             <Row>
                 {childrenList.map((c: any) => 
-                    <div key={c.id} className="dynamicRowCell">
+                    <div key={c.id} className="dynamic-row-cell">
                         {c.component}
                     </div>
                 )}
