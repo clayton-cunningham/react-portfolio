@@ -7,13 +7,52 @@
     }
 
     .logo {
-        max-width: 70%;
-        max-height: 100px;
+        display: flex;
+        width: 70%;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: auto;
+            height: auto;
+            max-width: 100px;
+            max-height: 100px;
+        }
     }
 
     .resume-company {
         p, h2, h3, h4, h5, h6 {
             margin: 0px;
+        }
+    }
+
+    .pill {
+        height: 50px;
+        border-width: 20px;
+        border-color: black;
+        background-color: rgb(75, 75, 75);
+        display: flex;
+        align-items: center;
+        padding-inline: 10px;
+        border-radius: 10px;
+        border: thick;
+        border-color: aliceblue;
+        border-style: outset;
+    }
+
+    .cert-row {
+        height: 400px;
+
+        .cert-badge {
+            max-width: 300px;
+            height: 300px;
+            transition: .5s;
+        }
+        .cert-badge:hover {
+            filter: drop-shadow(0 0 1rem green);
+            max-width: 350px;
+            height: 350px;
+            transition: .5s;
         }
     }
 }

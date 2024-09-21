@@ -15,6 +15,12 @@ const companyLogos = {
   blackRocket: "./companyLogos/blackRocketLogo.png",
 }
 
+export const certificationLinks = {
+  ckad: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/0ffb04e7-7031-4883-a692-8019f819d71c-clayton-cunningham-125aff18-7f14-4013-afc3-a81f89250d0f-certificate.pdf",
+  ccp: "https://www.credly.com/badges/c080e4ec-a0fb-4bae-8629-fc228c80250d/public_url",
+  saa: "https://www.credly.com/badges/74623c57-82c0-4a0d-9cb1-dca0e87690d2/public_url",
+}
+
 export const resumeCompanies = [
   {
     id: "1",

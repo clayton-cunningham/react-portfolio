@@ -131,7 +131,7 @@ export const Weather = () => {
                     <div style={{ minHeight: "400px"}}>
                         {
                             !resetUIData && (
-                                <div className="dynamic-row">
+                                <div className="row">
                                     <Column className="fade-up">
                                         <h2>{location}</h2>
                                         <img className="icon-img" alt={"Image not available; " + weatherReport[0]?.shortForecast} src={getIcon(weatherReport[0]?.shortForecast)} />

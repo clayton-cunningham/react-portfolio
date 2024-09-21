@@ -1,4 +1,4 @@
-import { Company } from "../../../assets/skillsLists";
+import { Company } from "../../../assets/skillsResources";
 import { Column } from "../../generic/Column";
 import "./ResumeDetails.less";
 
@@ -9,7 +9,9 @@ export const ResumeCompany = (props: {id: string, company: Company}) => {
     return (
         <>
             <Column key={id + "_resume-company"} className="resume-company">
-                <img className="logo" src={company.logoSrc}/>
+                <div className="logo">
+                    <img className="logo" src={company.logoSrc}/>
+                </div>
                 <h3>{company.title}</h3>
                 <p>{company.location}</p>
                 <p>{company.dates}</p>
