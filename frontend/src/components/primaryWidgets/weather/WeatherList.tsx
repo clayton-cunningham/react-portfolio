@@ -11,8 +11,8 @@ import { WeatherReportStructure, getDescription, getIcon } from "./helpers";
 export const WeatherList = (props: {weatherReport: WeatherReportStructure[]}) => {
 
     return (
-            <Row>
-            <div className="micro-weather">
+        <Row>
+            <div className="weather-list">
                 {props.weatherReport.map(element => {
                     
                     return (
@@ -26,7 +26,7 @@ export const WeatherList = (props: {weatherReport: WeatherReportStructure[]}) =>
                         </div>
                     );
                 })}
-                </div>
-            </Row>
+            </div>
+        </Row>
     )
 }

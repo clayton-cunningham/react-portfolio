@@ -1,6 +1,6 @@
 import { Column } from "../../generic/Column";
 import { PageSection } from "../../generic/PageSection";
-import { WeatherList } from "./MicroWeather";
+import { WeatherList } from "./WeatherList";
 import axios from "axios";
 import axiosRetry from 'axios-retry';
 import "./Weather.less";

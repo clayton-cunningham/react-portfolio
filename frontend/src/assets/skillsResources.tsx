@@ -1,13 +1,4 @@
 
-export type Company = {
-  id: string,
-  title: string,
-  location: string,
-  dates: string,
-  text: string[],
-  logoSrc: string,
-}
-
 const companyLogos = {
   costar: "./companyLogos/costarLogo.png",
   cognizant: "./companyLogos/cognizantLogo.png",
@@ -19,6 +10,15 @@ export const certificationLinks = {
   ckad: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/0ffb04e7-7031-4883-a692-8019f819d71c-clayton-cunningham-125aff18-7f14-4013-afc3-a81f89250d0f-certificate.pdf",
   ccp: "https://www.credly.com/badges/c080e4ec-a0fb-4bae-8629-fc228c80250d/public_url",
   saa: "https://www.credly.com/badges/74623c57-82c0-4a0d-9cb1-dca0e87690d2/public_url",
+}
+
+export type Company = {
+  id: string,
+  title: string,
+  location: string,
+  dates: string,
+  text: string[],
+  logoSrc: string,
 }
 
 export const resumeCompanies = [
@@ -103,3 +103,27 @@ export const software = [
   "Cypress",
   "K6",
 ]
+
+export type ProjectDescription = {
+  id: string,
+  imageSrc: string,
+  link: string,
+}
+
+export const projectDescriptions = [
+  {
+    id: "1",
+    imageSrc: "tactics.png",
+    link: "https://github.com/clayton-cunningham/Tactics",
+  },
+  {
+    id: "2",
+    imageSrc: "weatherBackground.jpg",
+    link: "",
+  },
+  {
+    id: "3",
+    imageSrc: "portfolio.png",
+    link: "https://github.com/clayton-cunningham/reactPortfolio",
+  },
+];

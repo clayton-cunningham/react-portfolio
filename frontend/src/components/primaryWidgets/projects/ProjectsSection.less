@@ -1,0 +1,39 @@
+.projects {
+    background-color: rgb(53, 61, 68);
+    color: white;
+
+    .row {
+        gap: 30px;
+    }
+
+    .project-image-container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+        max-width: 400px;
+    }
+
+    .see-more-label {
+        background-color: black;
+        color: greenyellow;
+        font-weight: bold;
+        width: 90px;
+        position: absolute;
+        top: 70%;
+        left: -90px;
+        transition: 0.5s;
+    }
+
+    img {
+        transition: 0.5s;
+        filter: none;
+        height: 100%;
+    }
+
+    .project-image-container:hover {
+        img { filter: blur(3px); }
+        .see-more-label { left: 0%; }
+    }
+}

@@ -22,18 +22,6 @@ export const ResumeDetails = () => {
                 <h3>Looking for a software developer position in New Jersey</h3>
             </PageSection>
             <PageSection>
-                <DynamicRow
-                    childrenList={resumeCompanies.map((c) => 
-                        {
-                            return {
-                                id: c.id,
-                                component: <ResumeCompany id={c.id} company={c} />
-                            }
-                        }
-                    )}
-                />
-            </PageSection>
-            <PageSection>
                 <Row className="cert-row">
                     <a href={certificationLinks.ckad}><img className="cert-badge" src="./certifications/ckad_badge.png" /></a>
                     <a href={certificationLinks.ccp}><img className="cert-badge" src="./certifications/aws_ccp_badge.png" /></a>
@@ -43,25 +31,6 @@ export const ResumeDetails = () => {
             <PageSection>
                 <Grid
                     cells={[
-                        // <h4>Certifications:</h4>,
-                        // <DynamicRowList
-                        //     childrenList={
-                        //         [
-                        //             {
-                        //                 id: "cert-ckad",
-                        //                 component: <img className="cert-badge" src="./certifications/ckad_badge.png"/>
-                        //             },
-                        //             {
-                        //                 id: "cert-ccp",
-                        //                 component: <img className="cert-badge" src="./certifications/aws_ccp_badge.png"/>
-                        //             },
-                        //             {
-                        //                 id: "cert-saa",
-                        //                 component: <img className="cert-badge" src="./certifications/aws_saa_badge.png"/>
-                        //             },
-                        //         ]
-                        //     }
-                        // />,
                         <h4>Langages:</h4>,
                         <DynamicRowList
                             childrenList={languages.map(l => {
@@ -80,6 +49,33 @@ export const ResumeDetails = () => {
                                     }
                                 })}
                         />,
+                    ]}
+                />
+            </PageSection>
+            <PageSection>
+                <DynamicRow
+                    childrenList={resumeCompanies.map((c) => 
+                        {
+                            return {
+                                id: c.id,
+                                component: <ResumeCompany id={c.id} company={c} />
+                            }
+                        }
+                    )}
+                />
+            </PageSection>
+            <PageSection>
+                <Grid
+                    className="grid-with-logos"
+                    cells={[
+                        <div className="logo">
+                            <img src="vt.png"/>
+                        </div>,
+                        <div>
+                            <p>B.S., Computer Science; May 2019 | Minor, Chinese</p>
+                            <p>Virginia Polytechnic Institute and State University - Blacksburg, VA</p>
+                            <p>Dean’s List 2016, 2017 & 2018 | GPA: 3.4</p>
+                        </div>
                     ]}
                 />
             </PageSection>
