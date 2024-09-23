@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "homepage": "https://github.com/clayton-cunningham/react-portfolio",
+  "homepage": ".",
   "private": true,
   "version": "0.0.0",
   "type": "module",
