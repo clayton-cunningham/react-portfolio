@@ -134,7 +134,7 @@ export const Weather = () => {
                                 <div className="row">
                                     <Column className="fade-up">
                                         <h2>{location}</h2>
-                                        <img className="icon-img" alt={"Image not available; " + weatherReport[0]?.shortForecast} src={"weatherWidget/" + getIcon(weatherReport[0]?.shortForecast)} />
+                                        <img className="icon-img" alt={"Image not available; " + weatherReport[0]?.shortForecast} src={"weather-widget/" + getIcon(weatherReport[0]?.shortForecast)} />
                                         <h3>{weatherReport[0]?.temperature}&deg;</h3>
                                         <h3>{getDescription(weatherReport[0]?.shortForecast)}</h3>
                                     </Column>
@@ -147,7 +147,7 @@ export const Weather = () => {
                         }
                     </div>
                 ) : (
-                    <img src="weatherWidget/weatherBackground.jpg" />
+                    <img src="weather-widget/weatherBackground.jpg" />
                 )}
                 {disable && (
                     <div>

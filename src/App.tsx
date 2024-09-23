@@ -1,8 +1,8 @@
 import './App.css'
 import { Column } from './components/generic/Column'
-import { ProjectsSection } from './components/primaryWidgets/projects/ProjectsSection'
-import { ResumeDetails } from './components/primaryWidgets/resume/ResumeDetails'
-import { Weather } from './components/primaryWidgets/weather/Weather'
+import { ProjectsSection } from './components/primary-widgets/projects/ProjectsSection'
+import { ResumeDetails } from './components/primary-widgets/resume/ResumeDetails'
+import { Weather } from './components/primary-widgets/weather/Weather'
 
 function App() {
 

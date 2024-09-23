@@ -1,9 +1,9 @@
 
 const companyLogos = {
-  costar: "./companyLogos/costarLogo.png",
-  cognizant: "./companyLogos/cognizantLogo.png",
-  epic: "./companyLogos/epicLogo.png",
-  blackRocket: "./companyLogos/blackRocketLogo.png",
+  costar: "./company-logos/costarLogo.png",
+  cognizant: "./company-logos/cognizantLogo.png",
+  epic: "./company-logos/epicLogo.png",
+  blackRocket: "./company-logos/blackRocketLogo.png",
 }
 
 export const certificationLinks = {
@@ -118,7 +118,7 @@ export const projectDescriptions = [
   },
   {
     id: "2",
-    imageSrc: "weatherWidget/weatherBackground.jpg",
+    imageSrc: "weather-widget/weatherBackground.jpg",
     link: "",
   },
   {

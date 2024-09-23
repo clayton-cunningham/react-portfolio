@@ -19,7 +19,7 @@ export const WeatherList = (props: {weatherReport: WeatherReportStructure[]}) =>
                         <div key={element.name + "_div"} style={{ height: "200px"}}>
                             <Column key={element.name + "_column"} className={`fade-up delay-${Math.floor(element.number / 2)}`}>
                                 <p>{element.name}</p>
-                                <img className="icon-img" alt={`${element.name} image or data not available`} src={"weatherWidget/" + getIcon(element.shortForecast)} />
+                                <img className="icon-img" alt={`${element.name} image or data not available`} src={"weather-widget/" + getIcon(element.shortForecast)} />
                                 <p>{element.temperature}&deg;</p>
                                 <p>{getDescription(element.shortForecast)}</p>
                             </Column>
