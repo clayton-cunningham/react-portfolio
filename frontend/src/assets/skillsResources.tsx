@@ -118,7 +118,7 @@ export const projectDescriptions = [
   },
   {
     id: "2",
-    imageSrc: "weatherBackground.jpg",
+    imageSrc: "weatherWidget/weatherBackground.jpg",
     link: "",
   },
   {
