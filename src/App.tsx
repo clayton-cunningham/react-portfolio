@@ -2,7 +2,6 @@ import './App.css'
 import { Column } from './components/generic/Column'
 import { ProjectsSection } from './components/primary-widgets/projects/ProjectsSection'
 import { ResumeDetails } from './components/primary-widgets/resume/ResumeDetails'
-import { Weather } from './components/primary-widgets/weather/Weather'
 
 function App() {
 
@@ -11,7 +10,6 @@ function App() {
       <Column>
         <ResumeDetails />
         <ProjectsSection />
-        <Weather />
       </Column>
     </>
   )

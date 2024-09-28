@@ -119,7 +119,7 @@ export const projectDescriptions = [
   {
     id: "2",
     imageSrc: "weather-widget/weatherBackground.jpg",
-    link: "",
+    link: "https://clayton-cunningham.github.io/weather/",
   },
   {
     id: "3",

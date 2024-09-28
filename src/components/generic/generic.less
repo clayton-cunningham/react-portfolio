@@ -85,47 +85,6 @@
     align-items: center;
 }
 
-#triangle-canvas {
-
-    @media (orientation: portrait) {
-        width: 100vh;
-        height: 200vh;
-    }
-    @media (orientation: landscape) {
-        width: 100vw;
-        height: 200vw;
-    }
-
-}
-
-.slide-diag {
-    position: absolute;
-}
-
-#slide-out-down-left {
-    top: -100vw;
-    left: 0;
-    animation: slide-out-diag 1.5s forwards;
-    animation-delay: 0.15s;
-}
-
-#slide-up-left {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    top: 100%;
-    left: 0;
-    animation: slide-in-diag 1.5s forwards;
-    animation-delay: 0.15s;
-}
-
-@keyframes slide-in-diag {
-    100% { top: -100vw; }
-}
-
-@keyframes slide-out-diag {
-    100% { top: 100%; }
-}
-
 .grid {
     display: grid;
     grid-template-columns: 15% 85%;
