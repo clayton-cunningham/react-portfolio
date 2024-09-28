@@ -15,6 +15,13 @@
     flex-wrap: wrap;
 }
 
+.left-align {
+    width: 100%;
+    justify-content: flex-start;
+    position: relative;
+    left: 5%;
+}
+
 .dynamic-row-list {
     display: flex;
     justify-content: flex-start;
@@ -48,6 +55,20 @@
     justify-content: center;
     width: 100vw;
     padding: 30px;
+}
+
+.section-align {
+    @media only screen and (min-width: 700px) {
+        position: relative;
+        left: 10%;
+        width: 90vw;
+        justify-content: flex-start;
+
+        .section-align-body {
+            position: relative;
+            left: 10%;
+        }
+    }
 }
 
 #triangle-canvas {
@@ -95,15 +116,25 @@
     display: grid;
     grid-template-columns: 15% 85%;
     padding: 10px;
-    width: 90%;
   
     .grid-item {
         padding: 20px;
-        text-align: center;
+        text-align: start;
     }
 
 }
 
 .grid-with-logos {
     grid-template-columns: auto auto;
+    column-gap: 10%;
+
+    @media only screen and (max-width: 700px) {
+        grid-template-columns: 100%;
+    }
+
+    .grid-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

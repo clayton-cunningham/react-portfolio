@@ -1,5 +1,6 @@
 import { Company } from "../../../assets/skillsResources";
 import { Column } from "../../generic/Column";
+import { Row } from "../../generic/Row";
 import "./ResumeDetails.less";
 
 export const ResumeCompany = (props: {id: string, company: Company}) => {
@@ -8,17 +9,21 @@ export const ResumeCompany = (props: {id: string, company: Company}) => {
 
     return (
         <>
-            <Column key={id + "_resume-company"} className="resume-company">
+            <Row key={id + "_resume-company"} className="resume-company">
+                <Column>
                 <div className="logo">
                     <img className="logo" src={company.logoSrc}/>
                 </div>
                 <h3>{company.title}</h3>
                 <p>{company.location}</p>
                 <p>{company.dates}</p>
+                </Column>
+                <Column>
                 {company.text.map((s: string) => {
                     return <p key={id + s.split(" ")[0]}>{s}</p>
                 })}
-            </Column>
+                </Column>
+            </Row>
         </>
     )
 }

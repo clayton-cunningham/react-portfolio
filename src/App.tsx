@@ -10,8 +10,8 @@ function App() {
     <>
       <Column>
         <ResumeDetails />
-        <Weather />
         <ProjectsSection />
+        <Weather />
       </Column>
     </>
   )
