@@ -1,4 +1,4 @@
-import { certificationLinks, languages, resumeCompanies, software } from "../../../assets/skillsResources.tsx";
+import { business, certificationLinks, languages, resumeCompanies, software } from "../../../assets/skillsResources.tsx";
 import { PageSection } from "../../generic/PageSection"
 import "./ResumeDetails.less";
 import { Grid } from "../../generic/Grid.tsx";
@@ -72,6 +72,17 @@ export const ResumeDetails = () => {
                                         }
                                     })}
                             />
+                            {/* <LeftAlign>
+                                <h2>Business:</h2>
+                            </LeftAlign>
+                            <DynamicRowList
+                                childrenList={business.map(s => {
+                                        return {
+                                            id: s,
+                                            component: <p className="pill">{s}</p>,
+                                        }
+                                    })}
+                            /> */}
                         </Column>
                     </div>
                 </PageSection>

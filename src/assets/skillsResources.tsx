@@ -86,22 +86,42 @@ export const languages = [
   "HTML",
   "YAML",
   "CSS",
+  "C",
+  "C++",
+  "Python",
+  "Mumps",
 ]
 
 export const software = [
   "Git",
   "AWS Lambda",
+  "AWS S3",
+  "AWS DynamoDB",
   "AWS Cloudwatch",
   "AWS IAM",
   "Kubernetes",
   "Docker",
+  "Terraform",
   "Kafka",
   "Eclipse",
   "Visual Studio",
   "Datadog",
   "Snowflake",
+  "Jest",
   "Cypress",
   "K6",
+  "Rest API's",
+]
+
+export const business = [
+  "Communication",
+  "Organization",
+  "Time Management",
+  "Critical Thinking",
+  "Attention to Detail",
+  "Creativity",
+  "Need Discovery",
+  "Process Mangement",
 ]
 
 export type ProjectDescription = {
