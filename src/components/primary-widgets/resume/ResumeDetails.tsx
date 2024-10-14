@@ -1,4 +1,4 @@
-import { business, certificationLinks, languages, resumeCompanies, software } from "../../../assets/skillsResources.tsx";
+import { certificationLinks, languages, resumeCompanies, software } from "../../../assets/skillsResources.tsx";
 import { PageSection } from "../../generic/PageSection"
 import "./ResumeDetails.less";
 import { Grid } from "../../generic/Grid.tsx";
@@ -22,8 +22,8 @@ export const ResumeDetails = () => {
                                 <LeftAlign>
                                     <h1>Hello, I'm</h1><h1 className="highlight">Clay</h1>
                                 </LeftAlign>
-                                <LeftAlign>
-                                    <h2>I'm a</h2><h2 className="highlight">full stack software developer</h2>
+                                <LeftAlign className="header-intro">
+                                    <h2>I'm a</h2><h2 className="highlight">full stack</h2><h2 className="highlight">software developer</h2>
                                 </LeftAlign>
                             </div>
                         </LeftAlign>
