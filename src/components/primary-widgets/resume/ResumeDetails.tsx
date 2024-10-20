@@ -8,6 +8,7 @@ import { Column } from "../../generic/Column.tsx";
 import { ExperienceHeader } from "./ExperienceHeader.tsx";
 import { ExperienceBody } from "./ExperienceBody.tsx";
 import { LeftAlign } from "../../generic/LeftAlign.tsx";
+import { ConnectedParticles } from "../../particles/ConnectedParticles.tsx";
 
 export const ResumeDetails = () => {
 
@@ -15,10 +16,11 @@ export const ResumeDetails = () => {
     return (
         <>
             <div className="resume">
-                <PageSection className="page-header">
+                <PageSection className="page-header resume-header">
+                    <ConnectedParticles />
                     <div className="section-align">
                         <LeftAlign>
-                            <div className="resume-header">
+                            <div className="resume-title">
                                 <LeftAlign>
                                     <h1>Hello, I'm</h1><h1 className="highlight">Clay</h1>
                                 </LeftAlign>
@@ -36,14 +38,16 @@ export const ResumeDetails = () => {
                             </h3>
                         </LeftAlign>
                     </div>
+                </PageSection>
+            </div>
+            <div className="resume">
+                <PageSection>
                     <Row className="cert-row">
                         <a href={certificationLinks.ckad}><img className="cert-badge" src="./certifications/ckad_badge.png" /></a>
                         <a href={certificationLinks.ccp}><img className="cert-badge" src="./certifications/aws_ccp_badge.png" /></a>
                         <a href={certificationLinks.saa}><img className="cert-badge" src="./certifications/aws_saa_badge.png" /></a>
                     </Row>
                 </PageSection>
-            </div>
-            <div className="resume">
                 <PageSection className="section-align">
                     <LeftAlign>
                         <h1>Skills</h1>
@@ -86,6 +90,8 @@ export const ResumeDetails = () => {
                         </Column>
                     </div>
                 </PageSection>
+            </div>
+            <div className="resume">
                 <PageSection className="section-align">
                     <LeftAlign>
                         <h1>Experience</h1>
