@@ -12,7 +12,7 @@ import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSl
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 import "./Particles.less";
 
-export const ConnectedParticles = (props: any) => {
+export const ConnectedParticles = () => {
 
     const [init, setInit] = useState(false);
 
@@ -31,7 +31,7 @@ export const ConnectedParticles = (props: any) => {
       });
     }, []);
   
-    const particlesLoaded = async (container?: Container): Promise<void> => {
+    const particlesLoaded = async (_container?: Container): Promise<void> => {
     //   console.log(container);
     };
   
