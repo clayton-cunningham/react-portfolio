@@ -127,28 +127,31 @@ export const business = [
 export type ProjectDescription = {
   id: string,
   imageSrc: string,
-  link: string,
+  link?: string,
+  githubLink?: string,
 }
 
 export const projectDescriptions = [
   {
     id: "1",
     imageSrc: "tactics.png",
-    link: "https://github.com/clayton-cunningham/Tactics",
+    githubLink: "https://github.com/clayton-cunningham/Tactics",
   },
   {
     id: "2",
     imageSrc: "weather-widget/weatherBackground.jpg",
     link: "https://clayton-cunningham.github.io/weather/",
+    githubLink: "https://github.com/clayton-cunningham/weather",
   },
   {
     id: "3",
     imageSrc: "portfolio.png",
-    link: "https://github.com/clayton-cunningham/reactPortfolio",
+    githubLink: "https://github.com/clayton-cunningham/reactPortfolio",
   },
   {
     id: "4",
     imageSrc: "placeRecorder.png",
     link: "https://fullstack-media-frontend.web.app/",
+    githubLink: "https://github.com/clayton-cunningham/fullstack-media",
   },
 ];

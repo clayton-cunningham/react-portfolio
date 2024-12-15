@@ -21,9 +21,16 @@
         font-weight: bold;
         width: 90px;
         position: absolute;
-        top: 70%;
         left: -90px;
         transition: 0.5s;
+    }
+
+    .offset30 {
+        top: 30%;
+    }
+
+    .offset70 {
+        top: 70%;
     }
 
     img {
@@ -33,7 +40,10 @@
     }
 
     .project-image-container:hover {
-        img { filter: blur(3px); }
-        .see-more-label { left: 0%; }
+        // img { filter: blur(3px); }
+        .see-more-label {
+            left: 0%; 
+            filter: drop-shadow(0 0 1rem greenyellow);
+        }
     }
 }
