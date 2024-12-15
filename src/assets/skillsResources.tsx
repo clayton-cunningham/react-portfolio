@@ -146,4 +146,9 @@ export const projectDescriptions = [
     imageSrc: "portfolio.png",
     link: "https://github.com/clayton-cunningham/reactPortfolio",
   },
+  {
+    id: "4",
+    imageSrc: "placeRecorder.png",
+    link: "https://fullstack-media-frontend.web.app/",
+  },
 ];
