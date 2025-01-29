@@ -5,7 +5,7 @@ I'm a passionate **Full Stack Developer** with a strong foundation in building d
 ## 🚀 Technologies & Tools
 
 ### Front-End:
-- **HTML5**, **CSS3**
+- **HTML5**, **CSS**, **LESS**
 - **JavaScript**, **TypeScript**, **React**
 
 ### Back-End:
