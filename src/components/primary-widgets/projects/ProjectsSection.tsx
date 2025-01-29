@@ -14,6 +14,7 @@ export const ProjectsSection = () => {
                     <Row>
                         {projectDescriptions.map(p => 
                             <ProjectCard 
+                                key={"project-micro-component-" + p.id}
                                 project={p}
                             />
                         )}

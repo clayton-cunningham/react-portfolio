@@ -7,12 +7,21 @@ export const ProjectCard = (props: {project: ProjectDescription}) => {
 
     return (
         <div className="project-image-container">
-            <a id={"project-micro-component-" + project.id} href={project.link}>
                 <img src={project.imageSrc}/>
-                <div className="see-more-label">
-                    <p>See more</p>
-                </div>
-            </a>
+                {project.link &&
+                    <a href={project.link}>
+                        <div className="see-more-label offset30">
+                            <p>Live app</p>
+                        </div>
+                    </a>
+                }
+                {project.githubLink &&
+                    <a href={project.githubLink}>
+                        <div className="see-more-label offset70">
+                            <p>Github</p>
+                        </div>
+                    </a>
+                }
         </div>
     )
 }
