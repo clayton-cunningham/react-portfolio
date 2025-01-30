@@ -17,7 +17,8 @@
     "@tsparticles/slim": "^3.5.0",
     "less": "^4.2.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-wordcloud": "^1.2.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

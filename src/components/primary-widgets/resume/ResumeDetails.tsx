@@ -9,9 +9,20 @@ import { ExperienceHeader } from "./ExperienceHeader.tsx";
 import { ExperienceBody } from "./ExperienceBody.tsx";
 import { LeftAlign } from "../../generic/LeftAlign.tsx";
 import { ConnectedParticles } from "../../particles/ConnectedParticles.tsx";
+import ReactWordcloud from "react-wordcloud";
+import { useState } from "react";
+
+const options = {
+    rotations: 2,
+    rotationAngles: [-90, 0] as [number, number],
+    fontSizes: [32, 72] as [number, number],
+    enableTooltip: false,
+    transitionDuration: 1000,
+};
 
 export const ResumeDetails = () => {
 
+    const [skillsSwitch, setSkillsSwitch] = useState(false);
 
     return (
         <>
@@ -52,30 +63,46 @@ export const ResumeDetails = () => {
                     <LeftAlign>
                         <h1>Skills</h1>
                     </LeftAlign>
-                    <div className="section-align-body">
+                    <div className="section-align-body" onClick={() => setSkillsSwitch(!skillsSwitch)}>
                         <Column className="skills-section">
-                            <LeftAlign>
-                                <h2>Langages:</h2>
-                            </LeftAlign>
-                            <DynamicRowList
-                                childrenList={languages.map(l => {
-                                        return {
-                                            id: l,
-                                            component: <p className="pill">{l}</p>,
-                                        }
-                                    })}
-                            />
-                            <LeftAlign>
-                                <h2>Software:</h2>
-                            </LeftAlign>
-                            <DynamicRowList
-                                childrenList={software.map(s => {
-                                        return {
-                                            id: s,
-                                            component: <p className="pill">{s}</p>,
-                                        }
-                                    })}
-                            />
+                            <div className={`skills-1${skillsSwitch ? " skills-hidden" : " skills-show"}`}>
+                                <LeftAlign>
+                                    <h2>Langages:</h2>
+                                </LeftAlign>
+                                <DynamicRowList
+                                    childrenList={languages.filter(l => l.name != ".").map(l => {
+                                            return {
+                                                id: l,
+                                                component: <p className="pill">{l.name}</p>,
+                                            }
+                                        })}
+                                />
+                                <LeftAlign>
+                                    <h2>Software:</h2>
+                                </LeftAlign>
+                                <DynamicRowList
+                                    childrenList={software.filter(s => s.name != ".").map(s => {
+                                            return {
+                                                id: s,
+                                                component: <p className="pill">{s.name}</p>,
+                                            }
+                                        })}
+                                />
+                            </div>
+                            <div className={`skills-2${skillsSwitch ? " skills-show" : " skills-hidden"}`}>
+                                <ReactWordcloud 
+                                    words={software.concat(languages).map(l => {
+                                            return {
+                                                text: l.name,
+                                                value: l.value
+                                            }
+                                        })}
+                                    options={{
+                                        deterministic: window.innerWidth < 700 ? true : false,
+                                        ...options
+                                    }}
+                                />
+                            </div>
                             {/* <LeftAlign>
                                 <h2>Business:</h2>
                             </LeftAlign>
